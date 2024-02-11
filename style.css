@@ -1,0 +1,149 @@
+/*declaração*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+
+*, :root {
+    margin: 0;
+    padding: 0; /*tirando o padrão que ja vem no navegador*/
+    box-sizing: border-box; /*siginifica que a medida das caixas, vai ser medida de ponta a ponta*/
+
+    font-family: 'Inter', sans-serif; /*se eu não encontrar a Font inter vou usar a sans-serif*/
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased; /*vai aplicar apenas em motores de navegadores que usam webkit como safari e chorome*/
+    -moz-osx-font-smoothing: grayscale; /*moz mozila firefox*/
+    -webkit-text-size-adjust: 100%;
+}
+
+body{
+    background-color: #0f172a;
+    /* width: 100%;
+    height: 100%; */
+    /* margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto; */
+}
+
+main{
+    /* border: 1px solid rgb(81, 0, 255); */
+    padding: 20px; /*basicamente o espaço*/
+    max-width: 640px;
+    margin: 0 auto 50px;
+}
+
+header{
+    margin-top: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #807dae76;
+}
+
+header h1 {
+    margin-top: 24px;
+    font-size: 30px;
+    color: #e7ffe8;
+}
+
+#quiz {
+    counter-reset: quiz-item;
+}
+
+.quiz-item{ /*seletor de classe*/
+    margin-top: 24px;
+    border: 1px solid #807dae76;
+    border-radius: 6px;
+
+    overflow: hidden; /* transbordar / hidden -> esconda o transbordamento*/
+}
+
+.quiz-item h3{
+    padding: 16px 20px;
+    color: #e8f9cd;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: #1e293b;
+}
+
+.quiz-item h3:before{ /* sempre que aparecer um h3 vai fazer algo */
+    counter-increment: quiz-item;
+    content: counter(quiz-item);
+
+    background-color: #475569;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    border-radius: 40%;
+
+    display: flex; /* sempre preciso declarar o display */
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* eu não quero que haja o encurtamento das bolinhas */
+}
+
+.quiz-item dl{
+    padding: 20px;
+    display: grid; /*se não tiver o grid o gap não vai funcionar*/
+    gap: 8px; /* espaço entre os elementos que estão no dl */
+}
+
+.quiz-item dl dt{
+    font-size: 14px;
+    font-weight: 400; /* peso de linha */
+    line-height: 24px; /* autura de linha */
+    letter-spacing: 0; 
+
+    display: flex; /* vai colocar um elemento ao lado do outro */
+    align-items: center; /* depois de definir que o display é flex defino que vai ficar alinhado com o centro */
+    gap: 8px;
+
+    color: #e8f9cd;
+}
+
+input{
+    all: unset; /* some com todos os inputs que vem por padrão */
+    border: 1px solid #adaaaa;
+    width: 16px;
+    height: 16px;
+
+    border-radius: 40%;
+
+    display: flex;
+    align-items: center; /* alinha ao centro no sentido horizontal */
+    justify-content: center; /* alinha ao centro no sentido vertical */
+    flex-shrink: 0;
+
+    /* display: inline-block; /* preciso avisar qual o tipo de display se não, não dá */
+}
+
+input:checked{ /* verifica se o input esta no estado checked */
+    border: 1px solid #93e213;
+}
+
+/* pseudo-selector */
+input:checked:before{ /* antes do elemento */
+    content: ""; /* especificando que não tem nada antes de estar selecionado */
+    width: 10px;
+    height: 10px;
+
+    background-color: #93e213;
+    border-radius: 40%;
+}
+
+#acertos{
+    text-align: center;
+    background-color: #93e213;
+
+    position: fixed; /*deixa fixado*/
+    bottom: 0; /*parte de baixo*/
+    left: 0;
+
+    width: 100%;
+    padding: 12px;
+}
+
+/* *{
+    border: 1px solid red;
+} */
